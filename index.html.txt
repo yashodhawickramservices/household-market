@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Household Market</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header><h1>Household Market</h1></header>
+  <main>
+    <form id="itemForm">
+      <input id="title" placeholder="Item title" required />
+      <input id="price" placeholder="Price (LKR)" type="number" required />
+      <input id="contact" placeholder="Contact (optional)" />
+      <textarea id="desc" placeholder="Short description"></textarea>
+      <button type="submit">Add/Update item</button>
+    </form>
+
+    <input id="search" placeholder="Search items..." />
+
+    <section id="list"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

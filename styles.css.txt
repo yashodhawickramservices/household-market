@@ -1,0 +1,7 @@
+body{font-family:system-ui,Segoe UI,Arial;max-width:900px;margin:24px auto;padding:8px}
+header h1{text-align:center}
+form{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+#list .card{border:1px solid #ddd;padding:8px;margin:8px 0;border-radius:6px}
+.meta{font-size:0.9em;color:#555}
+.actions{margin-top:6px}
+button{cursor:pointer}
