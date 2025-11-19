@@ -3,24 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Household Market</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Household Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header><h1>Household Market</h1></header>
-  <main>
-    <form id="itemForm">
-      <input id="title" placeholder="Item title" required />
-      <input id="price" placeholder="Price (LKR)" type="number" required />
-      <input id="contact" placeholder="Contact (optional)" />
-      <textarea id="desc" placeholder="Short description"></textarea>
-      <button type="submit">Add/Update item</button>
-    </form>
+  <header class="topbar">
+    <h1>Household Marketplace</h1>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search items..." />
+      <button id="openFormBtn" class="btn">Add Item</button>
+    </div>
+  </header>
 
-    <input id="search" placeholder="Search items..." />
+  <main class="container">
+    <section class="form-panel hidden" id="formPanel">
+      <form id="itemForm">
+        <h2 id="formTitle">Add Item</h2>
+        <label>Image (one only)</label>
+        <input id="imageInput" type="file" accept="image/*" />
+        <div id="previewWrap" class="preview-wrap hidden"><img id="imgPreview" alt="preview"/></div>
 
-    <section id="list"></section>
+        <label>Name</label>
+        <input id="nameInput" type="text" required maxlength="80" />
+
+        <label>Description</label>
+        <textarea id="descInput" rows="3" maxlength="600"></textarea>
+
+        <div class="row">
+          <div class="col">
+            <label>Price</label>
+            <input id="priceInput" type="text" placeholder="e.g. 1200 LKR or $10" />
+          </div>
+          <div class="col">
+            <label>Condition (optional)</label>
+            <input id="conditionInput" type="text" placeholder="e.g. Good" />
+          </div>
+        </div>
+
+        <label>Location (optional)</label>
+        <input id="locationInput" type="text" />
+
+        <label>Contact info</label>
+        <input id="contactInput" type="text" required placeholder="phone or email" />
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Save</button>
+          <button type="button" id="cancelBtn" class="btn">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-panel">
+      <div id="list" class="grid"></div>
+    </section>
   </main>
+
+  <template id="cardTpl">
+    <article class="card">
+      <div class="card-media"><img src="" alt="item image"/></div>
+      <div class="card-body">
+        <h3 class="item-name"></h3>
+        <p class="item-desc"></p>
+        <p class="meta"><span class="price"></span> <span class="condition"></span></p>
+        <p class="meta small"><span class="location"></span> • <span class="datetime"></span></p>
+        <p class="contact small"></p>
+      </div>
+      <div class="card-actions">
+        <button class="btn markSold">Mark Sold</button>
+        <button class="btn edit">Edit</button>
+        <button class="btn danger delete">Delete</button>
+      </div>
+    </article>
+  </template>
 
   <script src="app.js"></script>
 </body>
